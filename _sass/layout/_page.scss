@@ -482,69 +482,111 @@
 .carousel {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 640px;
   margin: 1em auto 0;
+  outline: none;
 
   &__track {
     position: relative;
-    aspect-ratio: 3 / 4;
+    width: 100%;
+    /* center slide is 60% of the width and 3:4, so the track is 0.8 as tall as wide */
+    aspect-ratio: 1 / 0.8;
     overflow: hidden;
-    border-radius: 6px;
-    background: var(--global-border-color);
   }
 
   &__slide {
     position: absolute;
-    inset: 0;
-    width: 100%;
+    top: 0;
+    left: 50%;
+    width: 60%;
     height: 100%;
     object-fit: cover;
+    border-radius: 6px;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    z-index: 0;
+    pointer-events: none;
+    transform: translateX(-50%) scale(0.7);
+    filter: blur(4px);
+    transition: transform 0.45s ease, opacity 0.45s ease, filter 0.45s ease;
 
     &.is-active {
       opacity: 1;
-    }
-  }
-
-  &__btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2.2em;
-    height: 2.2em;
-    border: 0;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.45);
-    color: #fff;
-    font-size: 1.4em;
-    line-height: 1;
-    cursor: pointer;
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.7);
+      z-index: 3;
+      pointer-events: auto;
+      transform: translateX(-50%) scale(1);
+      filter: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     }
 
-    &--prev { left: 0.5em; }
-    &--next { right: 0.5em; }
-  }
-
-  &__dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.4em;
-    margin-top: 0.5em;
-  }
-
-  &__dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--global-border-color);
-    cursor: pointer;
-
-    &.is-active {
-      background: var(--global-text-color-light);
+    &.is-prev,
+    &.is-next {
+      opacity: 0.55;
+      z-index: 2;
+      pointer-events: auto;
+      cursor: pointer;
     }
+
+    &.is-prev {
+      transform: translateX(-108%) scale(0.8);
+    }
+
+    &.is-next {
+      transform: translateX(8%) scale(0.8);
+    }
+  }
+}
+
+/* CV page */
+.cv-download {
+  margin: 0.5em 0 1.5em;
+}
+
+.project-entry ul {
+  margin: 0.25em 0 0;
+  padding-left: 1.2em;
+
+  li {
+    margin-bottom: 0.2em;
+  }
+}
+
+.cv-plain {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    margin-bottom: 0.3em;
+  }
+}
+
+.cv-transcript {
+  margin: 0.4em 0 0;
+  font-size: $type-size-6;
+}
+
+/* Phones: bigger center photo, side photos peek less */
+@media (max-width: 600px) {
+  .carousel {
+    &__track { aspect-ratio: 1 / 1.04; }  /* 78% wide, 3:4 */
+    &__slide { width: 78%; }
+    &__slide.is-prev { transform: translateX(-100%) scale(0.85); }
+    &__slide.is-next { transform: translateX(0%) scale(0.85); }
+  }
+}
+
+/* Wider left sidebar (author summary), with the main column shifted to keep the gap */
+#main .sidebar {
+  @include breakpoint($large) {
+    /* wider than the template's 2-of-12 column: 235px from 1280px screens up,
+       growing smoothly from small laptops so it never touches the content */
+    width: calc((min(100vw, 1280px) - 36px) / 6 + clamp(0px, (100vw - 1024px) * 0.15, 28px));
+    max-width: none;
+  }
+}
+
+#main .page,
+#main .archive {
+  @include breakpoint($large) {
+    @include prefix(0.75 of 12);
   }
 }

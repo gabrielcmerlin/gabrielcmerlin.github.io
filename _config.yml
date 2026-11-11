@@ -8,11 +8,11 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
-title                    : "Gabriel Merlin"
-title_separator          : "-"
-name                     : &name "Gabriel Merlin"
-description              : &description "Gabriel Merlin's academic website"   # Update this with a general description of your site, this is the default if not overridden by a page
+site_theme               : "dirt" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+title                    : "Gabriel da Costa Merlin"
+title_separator          : "|"
+name                     : &name "Gabriel da Costa Merlin"
+description              : &description "Gabriel da Costa Merlin's academic website"   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://gabrielcmerlin.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -24,7 +24,7 @@ repository               : "gabrielcmerlin/gabrielcmerlin.github.io"
 author:
   # Biographic information
   avatar           : "profile.jpg"
-  name             : "Gabriel Merlin"
+  name             : "Gabriel da Costa Merlin"
   pronouns         : # example: "she/her"  
   bio              : 'Undergrad Researcher at <a href="https://labic.icmc.usp.br/index.html" target="_blank" rel="noopener noreferrer">LABIC</a>, <a href="https://www5.usp.br" target="_blank" rel="noopener noreferrer">USP</a>'
   location         : "São Carlos, Brazil"

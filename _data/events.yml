@@ -4,9 +4,9 @@
   text: 'Presented <a href="/talks/">FCKAN</a> at <a href="https://bracis.sbc.org.br/2025/" target="_blank" rel="noopener noreferrer">ENIAC / BRACIS 2025</a>, Fortaleza, Brazil'
   photos:
     - src: /images/events/bracis-2025/01.jpg
-      alt: "Gabriel Merlin at ENIAC / BRACIS 2025 in Fortaleza"
+      alt: "Gabriel da Costa Merlin at ENIAC / BRACIS 2025 in Fortaleza"
     - src: /images/events/bracis-2025/02.jpg
-      alt: "Gabriel Merlin presenting FCKAN at ENIAC 2025"
+      alt: "Gabriel da Costa Merlin presenting FCKAN at ENIAC 2025"
     - src: /images/events/bracis-2025/03.jpg
       alt: "Beach in Fortaleza"
 
@@ -14,7 +14,7 @@
   text: 'Attended the <a href="https://cmmrs2025.mpi-sws.org" target="_blank" rel="noopener noreferrer">Cornell, Maryland, Max Planck Pre-doctoral Research School (CMMRS)</a>, Saarbrücken, Germany'
   photos:
     - src: /images/events/cmmrs-2025/01.jpg
-      alt: "Gabriel Merlin in front of the Max Planck Institute for Software Systems"
+      alt: "Gabriel da Costa Merlin in front of the Max Planck Institute for Software Systems"
     - src: /images/events/cmmrs-2025/04.jpg
       alt: "Bust of Max Planck"
     - src: /images/events/cmmrs-2025/05.jpg

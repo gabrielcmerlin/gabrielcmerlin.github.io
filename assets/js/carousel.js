@@ -1,26 +1,43 @@
-/* Simple photo carousel for the Events page: arrows, dots and autoplay loop. */
+/* Photo carousel for the Events page.
+   The current photo sits in the center; the previous and next ones peek out
+   behind it, smaller and blurred. Navigation is manual: clicking a side photo
+   or the left/right keys while the carousel has focus. */
 document.querySelectorAll('.carousel').forEach(function (root) {
-  var slides = root.querySelectorAll('.carousel__slide');
-  var dots = root.querySelectorAll('.carousel__dot');
-  if (slides.length < 2) { return; }
+  var slides = Array.prototype.slice.call(root.querySelectorAll('.carousel__slide'));
+  var n = slides.length;
   var i = 0;
-  var delay = parseInt(root.dataset.interval, 10) || 4000;
-  var timer = null;
 
-  function show(n) {
-    slides[i].classList.remove('is-active');
-    if (dots[i]) { dots[i].classList.remove('is-active'); }
-    i = (n + slides.length) % slides.length;
-    slides[i].classList.add('is-active');
-    if (dots[i]) { dots[i].classList.add('is-active'); }
+  function render() {
+    slides.forEach(function (s, k) {
+      s.classList.remove('is-active', 'is-prev', 'is-next');
+      s.removeAttribute('aria-hidden');
+      if (k === i) {
+        s.classList.add('is-active');
+      } else if (n > 1 && k === (i + 1) % n) {
+        s.classList.add('is-next');
+        s.setAttribute('aria-hidden', 'true');
+      } else if (n > 2 && k === (i - 1 + n) % n) {
+        s.classList.add('is-prev');
+        s.setAttribute('aria-hidden', 'true');
+      } else {
+        s.setAttribute('aria-hidden', 'true');
+      }
+    });
   }
-  function start() { stop(); timer = setInterval(function () { show(i + 1); }, delay); }
-  function stop() { if (timer) { clearInterval(timer); timer = null; } }
 
-  root.querySelector('.carousel__btn--prev').addEventListener('click', function () { show(i - 1); start(); });
-  root.querySelector('.carousel__btn--next').addEventListener('click', function () { show(i + 1); start(); });
-  dots.forEach(function (d, k) { d.addEventListener('click', function () { show(k); start(); }); });
-  root.addEventListener('mouseenter', stop);
-  root.addEventListener('mouseleave', start);
-  start();
+  function show(k) { i = (k + n) % n; render(); }
+
+  render();
+  if (n < 2) { return; }
+
+  slides.forEach(function (s, k) {
+    s.addEventListener('click', function () {
+      if (s.classList.contains('is-prev') || s.classList.contains('is-next')) { show(k); }
+    });
+  });
+  root.setAttribute('tabindex', '0');
+  root.addEventListener('keydown', function (ev) {
+    if (ev.key === 'ArrowLeft') { show(i - 1); }
+    if (ev.key === 'ArrowRight') { show(i + 1); }
+  });
 });

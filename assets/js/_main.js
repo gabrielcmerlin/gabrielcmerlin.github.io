@@ -9,15 +9,28 @@
 const PLOTLY_URL = "https://cdn.jsdelivr.net/npm/plotly.js@3.6.0/dist/plotly.min.js";
 const MERMAID_URL = "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
 
-// The site uses only the light theme.
+// Theme: the visitor's saved choice (from the sun/moon button) wins;
+// otherwise the site follows the system light/dark setting.
+const darkQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+function storedTheme() {
+  try {
+    const t = localStorage.getItem("theme");
+    return (t === "dark" || t === "light") ? t : null;
+  } catch (e) {
+    return null;
+  }
+}
 function determineComputedTheme() {
-  return "light";
+  return storedTheme() || ((darkQuery && darkQuery.matches) ? "dark" : "light");
 }
 
 // Set the theme on page load or when explicitly called. Without an argument the
 // theme is the stored preference or, failing that, the OS/browser preference.
 function setTheme(theme) {
   const use_theme = theme || determineComputedTheme();
+
+  // Keep the browser UI color (top bar, pull-to-refresh area) in sync with the theme
+  $("#theme-color-meta").attr("content", use_theme === "dark" ? "#1e2124" : "#f3f4f5");
 
   if (use_theme === "dark") {
     $("html").attr("data-theme", "dark");
@@ -26,6 +39,15 @@ function setTheme(theme) {
     $("html").removeAttr("data-theme");
     $("#theme-icon").removeClass("fa-moon").addClass("fa-sun");
   }
+}
+
+// Toggle the theme from the navbar button and remember the choice
+function toggleTheme(event) {
+  if (event) { event.preventDefault(); }
+  const next = $("html").attr("data-theme") === "dark" ? "light" : "dark";
+  try { localStorage.setItem("theme", next); } catch (e) { /* storage blocked: switch for this page only */ }
+  setTheme(next);
+  redrawPlotly();
 }
 
 // Defer the loading of Mermaid to only if there is a field on the page to be rendered
@@ -121,8 +143,18 @@ $(document).ready(function () {
   const scssLarge = 925;          // pixels, from /_sass/_themes.scss
   const scssMastheadHeight = 70;  // pixels, from the current theme (e.g., /_sass/theme/_default.scss)
 
-  // Always use the light theme
-  setTheme("light");
+  // Apply the saved choice or the system setting; follow live system changes
+  // only while the visitor has not picked a theme with the button
+  setTheme();
+  if (darkQuery) {
+    darkQuery.addEventListener("change", function () {
+      if (!storedTheme()) {
+        setTheme();
+        redrawPlotly();
+      }
+    });
+  }
+  $('#theme-toggle').on('click', toggleTheme);
 
   // Enable the sticky footer
   var bumpIt = function () {

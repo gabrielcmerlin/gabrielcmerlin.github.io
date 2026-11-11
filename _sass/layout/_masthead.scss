@@ -80,16 +80,15 @@
   /* No need to repeat pointer-events and cursor here */
 }
 
-/* Site name in the header: gray, as on luisashimabucoro.github.io */
-.greedy-nav .masthead__menu-item--lg a,
+/* Site name in the header: same colors as the other menu links (dirt theme).
+   On the home page it is the current page: no underline and no hover effect. */
 .greedy-nav .masthead__menu-item--lg.selected a {
-  color: #7a8288;
+  color: var(--global-masthead-link-color);
   border-bottom: none;
-  pointer-events: auto;
-  cursor: pointer;
+  pointer-events: none;
+  cursor: default;
 
-  &:hover {
-    color: #5c6266;
-    border-bottom: none;
+  &::before {
+    display: none;
   }
 }
