@@ -5,13 +5,13 @@ Recommended citation: {{ include.citation }}<br />
 <!-- Create the variable so it exists in the event there is no citation -->
 {% assign block = "" %}
 {% if include.paperurl %}
-{% capture block %}{{ block }}<a href="{{ include.paperurl }}">Download Paper</a> | {% endcapture %}
+{% capture block %}{{ block }}<a href="{{ include.paperurl }}" target="_blank" rel="noopener noreferrer">Download Paper</a> | {% endcapture %}
 {% endif %}
 {% if include.slidesurl %}
-{% capture block %}{{ block }}<a href="{{ include.slidesurl }}">Download Slides</a> | {% endcapture %}
+{% capture block %}{{ block }}<a href="{{ include.slidesurl }}" target="_blank" rel="noopener noreferrer">Download Slides</a> | {% endcapture %}
 {% endif %}
 {% if include.bibtexurl %}
-{% capture block %}{{ block }}<a href="{{ include.bibtexurl }}">Download BibTeX</a> | {% endcapture %}
+{% capture block %}{{ block }}<a href="{{ include.bibtexurl }}" target="_blank" rel="noopener noreferrer">Download BibTeX</a> | {% endcapture %}
 {% endif %}
 <!-- If we have a block, display it after removing the pipe -->
 {% if block.size > 0 %}

@@ -1,0 +1,25 @@
+---
+layout: archive
+title: "Projects"
+permalink: /projects/
+author_profile: true
+---
+
+{% include base_path %}
+
+{% assign all = site.projects | sort: "date" | reverse %}
+
+
+{% assign research = all | where: "section", "research" %}
+{% if research.size > 0 %}
+<h2>Research Projects</h2>
+{% for post in research %}{% include project-entry.html post=post %}{% endfor %}
+{% endif %}
+
+{% assign others = all | where: "section", "other" %}
+{% assign groups = others | group_by: "group" %}
+{% for g in groups %}
+  {% assign first = g.items | first %}
+<h2 class="project-group">{% if first.group_link %}<a href="{{ first.group_link }}" target="_blank" rel="noopener noreferrer">{{ g.name }}</a>{% else %}{{ g.name }}{% endif %}</h2>
+  {% for post in g.items %}{% include project-entry.html post=post %}{% endfor %}
+{% endfor %}

@@ -7,6 +7,11 @@ author_profile: true
 
 {% include base_path %}
 
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
+<ul class="publication-list">
+{% assign items = site.teaching | sort: "date" | reverse %}
+{% for post in items %}
+  <li>
+    <strong>{{ post.period }}</strong> {{ post.role }}, <i>{{ post.title }}</i>, {% if post.org_link %}<a href="{{ post.org_link }}" target="_blank" rel="noopener noreferrer">{{ post.org }}</a>{% else %}{{ post.org }}{% endif %}
+  </li>
 {% endfor %}
+</ul>

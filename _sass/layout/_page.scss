@@ -399,3 +399,152 @@
   font-size: $type-size-6;
   text-transform: uppercase;
 }
+
+/* Publications page: numbered list in the style of a CV */
+.publication-list {
+  margin-top: 1em;
+
+  li {
+    margin-bottom: 0.75em;
+    line-height: 1.6;
+  }
+}
+
+/* Talks page: list with an optional photo under each talk */
+.talk-list {
+  margin-top: 1em;
+
+  li {
+    margin-bottom: 1.5em;
+    line-height: 1.6;
+  }
+}
+
+.talk-photo {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 0.75em auto 0;
+  border-radius: 6px;
+}
+
+/* Projects page: entries in the style of sb-lucas.github.io/projects */
+.project-group a {
+  text-decoration: none;
+}
+
+.project-entry {
+  margin-bottom: 1.5em;
+  line-height: 1.6;
+
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1em;
+  }
+
+  .project-period {
+    flex-shrink: 0;
+    color: var(--global-text-color-light);
+    font-size: $type-size-6;
+  }
+
+  .project-role {
+    font-style: italic;
+    color: var(--global-text-color-light);
+  }
+
+  .project-desc p {
+    margin: 0.15em 0;
+  }
+
+  .project-links {
+    font-size: $type-size-6;
+
+    a {
+      text-decoration: none;
+      margin-right: 0.35em;
+    }
+  }
+}
+
+/* Events page: list with a centered photo carousel under each event */
+.event-list {
+  margin-top: 1em;
+
+  > li {
+    margin-bottom: 2em;
+    line-height: 1.6;
+  }
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 1em auto 0;
+
+  &__track {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 6px;
+    background: var(--global-border-color);
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+
+    &.is-active {
+      opacity: 1;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.2em;
+    height: 2.2em;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    font-size: 1.4em;
+    line-height: 1;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    &--prev { left: 0.5em; }
+    &--next { right: 0.5em; }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.4em;
+    margin-top: 0.5em;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--global-border-color);
+    cursor: pointer;
+
+    &.is-active {
+      background: var(--global-text-color-light);
+    }
+  }
+}
