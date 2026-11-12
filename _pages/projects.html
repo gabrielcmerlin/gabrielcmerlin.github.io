@@ -1,6 +1,7 @@
 ---
 layout: archive
 title: "Projects"
+hide_title: true
 permalink: /projects/
 author_profile: true
 ---
@@ -9,15 +10,22 @@ author_profile: true
 
 {% assign all = site.projects | sort: "date" | reverse %}
 
-<ul class="publication-list project-bullets">
+<div class="project-cards">
 {% for p in all %}
-  <li>
-    <strong>{{ p.title }}</strong>
-    <ul>
-      <li>{{ p.role }}{% if p.group %} at {% if p.group_link %}<a href="{{ p.group_link }}" target="_blank" rel="noopener noreferrer">{{ p.group }}</a>{% else %}{{ p.group }}{% endif %}{% endif %}</li>
-      <li>{{ p.content | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
-    </ul>
-    {% if p.links %}<div class="project-links-line">{% for l in p.links %}<a class="bracket-link" href="{{ l.url }}" target="_blank" rel="noopener noreferrer">[{{ l.name }}]</a>{% endfor %}</div>{% endif %}
-  </li>
+  <article class="project-card">
+    {% if p.logo %}
+    <div class="project-card__logo"{% if p.logo_bg %} style="background-color: {{ p.logo_bg }}"{% endif %}>
+      <img src="{{ base_path }}{{ p.logo }}" alt="{{ p.title }} logo" loading="lazy">
+    </div>
+    {% endif %}
+    <div class="project-card__body">
+      <h2 class="project-card__title">{{ p.title }}</h2>
+      <p class="project-card__role">{{ p.role }}{% if p.group %} at {% if p.group_link %}<a href="{{ p.group_link }}" target="_blank" rel="noopener noreferrer">{{ p.group }}</a>{% else %}{{ p.group }}{% endif %}{% endif %}</p>
+      <div class="project-card__desc">{{ p.content | markdownify }}</div>
+      {% if p.links %}
+      <div class="project-card__links">{% for l in p.links %}<a class="tl-link-btn" href="{{ l.url }}" target="_blank" rel="noopener noreferrer">{{ l.name }}</a>{% endfor %}</div>
+      {% endif %}
+    </div>
+  </article>
 {% endfor %}
-</ul>
+</div>

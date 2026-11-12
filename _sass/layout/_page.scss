@@ -783,3 +783,88 @@ $tl-date-col: 5.5em;
   display: table;   /* own line, but only as wide as the text */
   margin: 0.4em 0 0;
 }
+
+/* ==========================================================================
+   Projects as cards: logo on the left, text on the right
+   ========================================================================== */
+.project-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  margin-top: 0.5em;
+}
+
+.project-card {
+  display: flex;
+  gap: 1.25em;
+  padding: 1em;
+  border: 1px solid var(--global-border-color);
+  border-radius: 8px;
+  background: var(--global-code-background-color);
+}
+
+.project-card__logo {
+  flex: 0 0 140px;
+  width: 140px;
+  height: 140px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.project-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-card__title {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: $type-size-4;
+  line-height: 1.2;
+}
+
+.project-card__role {
+  margin: 0.25em 0 0;
+  font-size: $type-size-6;
+  font-style: italic;
+  color: var(--global-text-color-light);
+}
+
+.project-card__desc {
+  margin-top: 0.6em;
+  font-size: $type-size-6;
+  line-height: 1.55;
+
+  p { margin: 0; }
+}
+
+.project-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-top: 0.75em;
+
+  .tl-link-btn { margin-top: 0; }
+}
+
+@media (max-width: 600px) {
+  .project-card {
+    flex-direction: column;
+  }
+
+  .project-card__logo {
+    flex-basis: auto;
+    width: 100%;
+    height: 160px;
+  }
+}

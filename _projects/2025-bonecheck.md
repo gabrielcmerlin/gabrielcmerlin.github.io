@@ -1,6 +1,8 @@
 ---
 title: "BoneCheck"
 collection: projects
+logo: "/images/projects/bonecheck.png"
+logo_bg: "#255ca5"
 section: other
 group: "RAIA"
 group_link: "https://gruporaia.com"
