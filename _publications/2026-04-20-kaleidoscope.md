@@ -1,7 +1,7 @@
 ---
 title: "Kaleidoscope: In-language Exams for Massively Multilingual Vision Evaluation"
 collection: publications
-authors: 'Israfel Salazar, Manuel Fernández Burda, Shayekh Islam, …, <b>Gabriel da Costa Merlin</b>, …, Sara Hooker, Marzieh Fadaee'
+authors: 'Israfel Salazar, Manuel Fernández Burda, Shayekh Islam, …, Gabriel da Costa Merlin, …, Sara Hooker, Marzieh Fadaee'
 venue_full: 'International Conference on Learning Representations (ICLR)'
 category: conferences
 permalink: /publication/2026-kaleidoscope

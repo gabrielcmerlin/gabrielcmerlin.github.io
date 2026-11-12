@@ -8,7 +8,7 @@ author_profile: true
 <ul class="publication-list">
 {% for post in site.publications reversed %}
   <li>
-    {{ post.authors }}, &ldquo;{% if post.link %}<a href="{{ post.link }}" target="_blank" rel="noopener noreferrer">{{ post.title }}</a>{% else %}{{ post.title }}{% endif %}&rdquo;, <i>{{ post.venue_full | default: post.venue }}</i>, {{ post.date | date: "%Y" }}.
+    <strong>{{ post.title }}</strong>. {{ post.authors }}. <i>{{ post.venue_full | default: post.venue }}</i>, {{ post.date | date: "%Y" }}.{% if post.link %} <a href="{{ post.link }}" target="_blank" rel="noopener noreferrer">[link]</a>{% endif %}
   </li>
 {% endfor %}
 </ul>

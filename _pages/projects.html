@@ -9,17 +9,15 @@ author_profile: true
 
 {% assign all = site.projects | sort: "date" | reverse %}
 
-
-{% assign research = all | where: "section", "research" %}
-{% if research.size > 0 %}
-<h2>Research Projects</h2>
-{% for post in research %}{% include project-entry.html post=post %}{% endfor %}
-{% endif %}
-
-{% assign others = all | where: "section", "other" %}
-{% assign groups = others | group_by: "group" %}
-{% for g in groups %}
-  {% assign first = g.items | first %}
-<h2 class="project-group">{% if first.group_link %}<a href="{{ first.group_link }}" target="_blank" rel="noopener noreferrer">{{ g.name }}</a>{% else %}{{ g.name }}{% endif %}</h2>
-  {% for post in g.items %}{% include project-entry.html post=post %}{% endfor %}
+<ul class="publication-list project-bullets">
+{% for p in all %}
+  <li>
+    <strong>{{ p.title }}</strong>
+    <ul>
+      <li>{{ p.role }}{% if p.group %} at {% if p.group_link %}<a href="{{ p.group_link }}" target="_blank" rel="noopener noreferrer">{{ p.group }}</a>{% else %}{{ p.group }}{% endif %}{% endif %}</li>
+      <li>{{ p.content | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+    </ul>
+    {% if p.links %}<div class="project-links-line">{% for l in p.links %}<a class="bracket-link" href="{{ l.url }}" target="_blank" rel="noopener noreferrer">[{{ l.name }}]</a>{% endfor %}</div>{% endif %}
+  </li>
 {% endfor %}
+</ul>

@@ -1,7 +1,7 @@
 ---
 title: "Codifique: Python and Game Development for High School Students"
 collection: teaching
-role: "Instructor"
+role: "Teaching Assistant"
 period: "2022–2023"
 org: "PET Computação, ICMC-USP"
 org_link: "https://pet.icmc.usp.br"

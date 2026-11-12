@@ -4,7 +4,7 @@ collection: projects
 section: other
 group: "RAIA"
 group_link: "https://gruporaia.com"
-role: "AI Project Coordinator"
+role: "Project Coordinator"
 period: "Jan–Dec 2025"
 date: 2025-01-01
 links:
