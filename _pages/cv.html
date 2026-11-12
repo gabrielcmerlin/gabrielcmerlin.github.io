@@ -1,6 +1,7 @@
 ---
 layout: archive
 title: "CV"
+hide_title: true
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -10,146 +11,160 @@ redirect_from:
 {% include base_path %}
 {% assign newtab = 'target="_blank" rel="noopener noreferrer"' %}
 
-<p class="cv-download"><a class="btn btn--inverse" href="{{ base_path }}/files/cv.pdf" {{ newtab }}><i class="fas fa-file-pdf" aria-hidden="true"></i> Download CV (PDF)</a></p>
+<div class="cv-heading-row">
+  <h2>Education</h2>
+  <a class="cv-download-inline" href="{{ base_path }}/files/cv.pdf" {{ newtab }}>Download CV (PDF)</a>
+</div>
 
-<h2>Education</h2>
-
-<div class="project-entry">
-  <div class="project-head">
-    <strong>B.Sc. in Computer Science</strong>
-    <span class="project-period">Jan 2022 – Dec 2026</span>
-  </div>
-  <div class="project-role">Universidade de São Paulo (USP)</div>
-  <ul>
-    <li>GPA: 9.4/10</li>
-    <li>Rank: 2nd/92</li>
-    <li>Theses: &ldquo;Adapting Transformers and Mamba for Time Series Extrinsic Regression&rdquo; (approved, 2025) and &ldquo;Few-shot Learning for Time Series Classification Using a Tabular Foundation Model&rdquo; (submitted, 2026)</li>
-  </ul>
-  <p class="cv-transcript"><a href="{{ base_path }}/files/transcript.pdf" {{ newtab }}><i class="fas fa-file-lines" aria-hidden="true"></i> Check my academic transcript</a></p>
+<div class="project-cards">
+  <article class="project-card cv-card cv-education">
+    <div class="project-card__body">
+      <h3 class="project-card__title">B.Sc. in Computer Science</h3>
+      <p class="cv-institution">Universidade de São Paulo (USP) · Jan 2022 – Dec 2026</p>
+      <div class="cv-stats">
+        <span><span class="cv-label">GPA</span> 9.4/10</span>
+        <span><span class="cv-label">Rank</span> 2nd of 92</span>
+      </div>
+      <div class="cv-rows cv-theses">
+        <div class="cv-row"><span>&ldquo;Adapting Transformers and Mamba for Time Series Extrinsic Regression&rdquo;</span><span class="cv-when">approved, 2025</span></div>
+        <div class="cv-row"><span>&ldquo;Few-shot Learning for Time Series Classification Using a Tabular Foundation Model&rdquo;</span><span class="cv-when">submitted, 2026</span></div>
+      </div>
+      <p class="cv-transcript-link"><a href="{{ base_path }}/files/transcript.pdf" {{ newtab }}>Check my academic transcript &rarr;</a></p>
+    </div>
+  </article>
 </div>
 
 <h2>Scholarships &amp; Awards</h2>
 
-<ul class="cv-plain">
-  <li>FAPESP Research Internship Abroad Scholarship (BEPE), 2026</li>
-  <li>FAPESP Undergraduate Research Scholarship, 2023, 2024, 2025</li>
-  <li>Selected to attend the Cornell, Maryland, Max Planck Pre-doctoral Research School (CMMRS), 2025</li>
-</ul>
+<div class="cv-rows">
+  <div class="cv-row"><span>FAPESP Research Internship Abroad Scholarship (BEPE)</span><span class="cv-when">Apr 2026 – Jun 2026</span></div>
+  <div class="cv-row"><span>FAPESP Undergraduate Research Scholarship</span><span class="cv-when">Sep 2025 – Nov 2026</span></div>
+  <div class="cv-row"><span>FAPESP Undergraduate Research Scholarship</span><span class="cv-when">Jun 2024 – May 2025</span></div>
+  <div class="cv-row"><span>FAPESP Undergraduate Research Scholarship</span><span class="cv-when">Apr 2023 – Mar 2024</span></div>
+  <div class="cv-row"><span>Selected to attend the Cornell, Maryland, Max Planck Pre-doctoral Research School (CMMRS)</span><span class="cv-when">Aug 2025</span></div>
+</div>
 
 <h2>Research Experience</h2>
 
-<div class="project-entry">
-  <div class="project-head">
-    <strong>Research Intern</strong>
-    <span class="project-period">Apr 2026 – Jun 2026</span>
-  </div>
-  <div class="project-role">Universidad de Granada</div>
-  <ul>
-    <li>&ldquo;Evaluating Neural Architecture Search for Time Series Extrinsic Regression&rdquo;, supervised by <a href="https://people.cs.nott.ac.uk/pszit/index.html" {{ newtab }}>Prof. Isaac Triguero</a>.</li>
-    <li>Funded by a FAPESP Research Internship Abroad Scholarship (BEPE).</li>
-    <li>Constructed a 1D convolutional search space using FCN and ResNet primitives to evaluate NAS strategies across 15 benchmark datasets, assessing predictive gains, computational efficiency, and energy consumption.</li>
-  </ul>
-  <div class="project-links"><a href="https://bv.fapesp.br/en/bolsas/234753/evaluating-neural-architecture-search-for-time-series-extrinsic-regression/" {{ newtab }}>[grant]</a> <a href="https://github.com/gabrielcmerlin/NAS-TER/tree/bepe_report" {{ newtab }}>[code]</a></div>
+<div class="project-cards">
+  <article class="project-card cv-card">
+    <div class="project-card__body">
+      <h3 class="project-card__title">&ldquo;Evaluating Neural Architecture Search for Time Series Extrinsic Regression&rdquo;</h3>
+      <p class="project-card__role">Research Intern · Universidad de Granada · Apr 2026 – Jun 2026</p>
+      <div class="project-card__desc">
+        <p>Supervised by <a href="https://people.cs.nott.ac.uk/pszit/index.html" {{ newtab }}>Prof. Isaac Triguero</a>. Funded by a FAPESP Research Internship Abroad Scholarship (BEPE).</p>
+        <p>Constructed a 1D convolutional search space using FCN and ResNet primitives to evaluate NAS strategies across 15 benchmark datasets, assessing predictive gains, computational efficiency, and energy consumption.</p>
+      </div>
+      <div class="project-card__links">
+        <a class="tl-link-btn" href="https://bv.fapesp.br/en/bolsas/234753/evaluating-neural-architecture-search-for-time-series-extrinsic-regression/" {{ newtab }}>grant</a>
+        <a class="tl-link-btn" href="https://github.com/gabrielcmerlin/NAS-TER/tree/bepe_report" {{ newtab }}>code</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-card cv-card">
+    <div class="project-card__body">
+      <h3 class="project-card__title">&ldquo;Novel Architectures for Time Series Classification and Extrinsic Regression&rdquo;</h3>
+      <p class="project-card__role">Undergraduate Researcher · Universidade de São Paulo (USP) · Sep 2025 – Nov 2026</p>
+      <div class="project-card__desc">
+        <p>Supervised by <a href="https://diegofurts.github.io" {{ newtab }}>Prof. Diego Furtado Silva</a>. Funded by a FAPESP Undergraduate Research Scholarship.</p>
+        <p>Developed TS2TabPFN, combining time series feature extraction with tabular foundation models, achieving state-of-the-art performance in extrinsic regression and matching top ensembles in classification, with up to a 700x inference speedup in select cases.</p>
+        <p>Resulted in a paper accepted at ECML PKDD 2026.</p>
+      </div>
+      <div class="project-card__links">
+        <a class="tl-link-btn" href="https://bv.fapesp.br/en/bolsas/230859/novel-architectures-for-time-series-classification-and-extrinsic-regression/" {{ newtab }}>grant</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-card cv-card">
+    <div class="project-card__body">
+      <h3 class="project-card__title">&ldquo;Off-the-shelf Algorithms for Classification and Extrinsic Regression&rdquo;</h3>
+      <p class="project-card__role">Undergraduate Researcher · Universidade de São Paulo (USP) · Jun 2024 – May 2025</p>
+      <div class="project-card__desc">
+        <p>Supervised by <a href="https://diegofurts.github.io" {{ newtab }}>Prof. Diego Furtado Silva</a>. Funded by a FAPESP Undergraduate Research Scholarship.</p>
+        <p>Built end-to-end PyTorch pipelines to systematically evaluate modified FCN architectures, isolating the impact of convolutional depth, predictor heads, and filter counts on time series performance.</p>
+        <p>Resulted in a paper accepted at ENIAC 2025.</p>
+      </div>
+      <div class="project-card__links">
+        <a class="tl-link-btn" href="https://bv.fapesp.br/en/bolsas/217721/off-the-shelf-algorithms-for-classification-and-extrinsic-regression/" {{ newtab }}>grant</a>
+        <a class="tl-link-btn" href="https://github.com/gabrielcmerlin/models-off-the-shelf" {{ newtab }}>code</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-card cv-card">
+    <div class="project-card__body">
+      <h3 class="project-card__title">&ldquo;Time Series in mHealth Applications: Task Definition and Data Collection&rdquo;</h3>
+      <p class="project-card__role">Undergraduate Researcher · Universidade de São Paulo (USP) · Apr 2023 – Mar 2024</p>
+      <div class="project-card__desc">
+        <p>Supervised by <a href="https://diegofurts.github.io" {{ newtab }}>Prof. Diego Furtado Silva</a>. Funded by a FAPESP Undergraduate Research Scholarship.</p>
+        <p>Engineered an end-to-end system for estimating clinical lab results from fingertip videos, using a Flutter mobile app, OpenCV data processing, and FastAI deep learning models.</p>
+      </div>
+      <div class="project-card__links">
+        <a class="tl-link-btn" href="https://bv.fapesp.br/en/bolsas/208053/time-series-in-mhealth-applications-task-definition-and-data-collection/" {{ newtab }}>grant</a>
+        <a class="tl-link-btn" href="https://github.com/gabrielcmerlin/mhealthApplications" {{ newtab }}>code</a>
+      </div>
+    </div>
+  </article>
 </div>
 
-<div class="project-entry">
-  <div class="project-head">
-    <strong>Undergraduate Researcher</strong>
-    <span class="project-period">Sep 2025 – Nov 2026</span>
-  </div>
-  <div class="project-role">Universidade de São Paulo (USP)</div>
-  <ul>
-    <li>&ldquo;Novel Architectures for Time Series Classification and Extrinsic Regression&rdquo;, supervised by <a href="https://diegofurts.github.io" {{ newtab }}>Prof. Diego Furtado Silva</a>.</li>
-    <li>Funded by a FAPESP Undergraduate Research Scholarship.</li>
-    <li>Developed TS2TabPFN, combining time series feature extraction with tabular foundation models, achieving state-of-the-art performance in extrinsic regression and matching top ensembles in classification, with up to a 700x inference speedup in select cases.</li>
-    <li>Resulted in a paper accepted at ECML PKDD 2026.</li>
-  </ul>
-  <div class="project-links"><a href="https://bv.fapesp.br/en/bolsas/230859/novel-architectures-for-time-series-classification-and-extrinsic-regression/" {{ newtab }}>[grant]</a></div>
-</div>
+<h2>Student Groups</h2>
 
-<div class="project-entry">
-  <div class="project-head">
-    <strong>Undergraduate Researcher</strong>
-    <span class="project-period">Jun 2024 – May 2025</span>
-  </div>
-  <div class="project-role">Universidade de São Paulo (USP)</div>
-  <ul>
-    <li>&ldquo;Off-the-shelf Algorithms for Classification and Extrinsic Regression&rdquo;, supervised by <a href="https://diegofurts.github.io" {{ newtab }}>Prof. Diego Furtado Silva</a>.</li>
-    <li>Funded by a FAPESP Undergraduate Research Scholarship.</li>
-    <li>Built end-to-end PyTorch pipelines to systematically evaluate modified FCN architectures, isolating the impact of convolutional depth, predictor heads, and filter counts on time series performance.</li>
-    <li>Resulted in a paper accepted at ENIAC 2025.</li>
-  </ul>
-  <div class="project-links"><a href="https://bv.fapesp.br/en/bolsas/217721/off-the-shelf-algorithms-for-classification-and-extrinsic-regression/" {{ newtab }}>[grant]</a> <a href="https://github.com/gabrielcmerlin/models-off-the-shelf" {{ newtab }}>[code]</a></div>
-</div>
+<div class="project-cards">
+  <article class="project-card cv-card">
+    <div class="project-card__body">
+      <h3 class="project-card__title">RAIA</h3>
+      <p class="project-card__role">AI Project Coordinator &amp; Researcher · Sep 2024 – Dec 2025</p>
+      <div class="project-card__desc">
+        <p>&ldquo;BoneCheck&rdquo; (Jan 2025 – Dec 2025): coordinated a project on early osteoporosis detection in dental X-rays.</p>
+        <p>&ldquo;BEMU&rdquo; (Sep 2024 – Dec 2024): built a Portuguese multimodal exam dataset, used in the Kaleidoscope paper (ICLR 2026).</p>
+      </div>
+      <div class="project-card__links"><a class="tl-link-btn" href="https://gruporaia.com" {{ newtab }}>website</a></div>
+    </div>
+  </article>
 
-<div class="project-entry">
-  <div class="project-head">
-    <strong>Undergraduate Researcher</strong>
-    <span class="project-period">Apr 2023 – Mar 2024</span>
-  </div>
-  <div class="project-role">Universidade de São Paulo (USP)</div>
-  <ul>
-    <li>&ldquo;Time Series in mHealth Applications: Task Definition and Data Collection&rdquo;, supervised by <a href="https://diegofurts.github.io" {{ newtab }}>Prof. Diego Furtado Silva</a>.</li>
-    <li>Funded by a FAPESP Undergraduate Research Scholarship.</li>
-    <li>Engineered an end-to-end system for estimating clinical lab results from fingertip videos, using a Flutter mobile app, OpenCV data processing, and FastAI deep learning models.</li>
-  </ul>
-  <div class="project-links"><a href="https://bv.fapesp.br/en/bolsas/208053/time-series-in-mhealth-applications-task-definition-and-data-collection/" {{ newtab }}>[grant]</a> <a href="https://github.com/gabrielcmerlin/mhealthApplications" {{ newtab }}>[code]</a></div>
+  <article class="project-card cv-card">
+    <div class="project-card__body">
+      <h3 class="project-card__title">PET Computação</h3>
+      <p class="project-card__role">Teaching Assistant &amp; Instructor · Sep 2022 – Dec 2023</p>
+      <div class="project-card__desc">
+        <p>&ldquo;Overclock&rdquo; (Jul 2023 – Dec 2023): mentored undergraduates in C programming.</p>
+        <p>&ldquo;Codifique&rdquo; (Sep 2022 – Jun 2023): taught Python and game development to high school students.</p>
+      </div>
+      <div class="project-card__links"><a class="tl-link-btn" href="https://pet.icmc.usp.br" {{ newtab }}>website</a></div>
+    </div>
+  </article>
+
+  <article class="project-card cv-card">
+    <div class="project-card__body">
+      <h3 class="project-card__title">DATA ICMC</h3>
+      <p class="project-card__role">Study Group Coordinator &amp; Member · Mar 2022 – Feb 2025</p>
+      <div class="project-card__desc">
+        <p>Coordinated the &ldquo;Deep Learning for Time Series&rdquo; study group (Aug 2024 – Dec 2024).</p>
+        <p>Member of the &ldquo;Machine Learning&rdquo; and &ldquo;Deep Learning&rdquo; study groups and helped with internal operations (Mar 2022 – Feb 2025).</p>
+      </div>
+      <div class="project-card__links"><a class="tl-link-btn" href="https://data.icmc.usp.br" {{ newtab }}>website</a></div>
+    </div>
+  </article>
 </div>
 
 <h2>Publications</h2>
 
-<p>See <a href="{{ base_path }}/publications/">Publications</a> for the full list of my papers.</p>
-
-<h2>Student Groups</h2>
-
-<div class="project-entry">
-  <div class="project-head">
-    <strong><a href="https://gruporaia.com" {{ newtab }}>RAIA</a></strong>
-    <span class="project-period">Sep 2024 – Dec 2025</span>
-  </div>
-  <div class="project-role">AI Project Coordinator &amp; Researcher</div>
-  <ul>
-    <li>BoneCheck (Jan – Dec 2025): coordinated a project on early osteoporosis detection in dental X-rays.</li>
-    <li>BEMU (Sep – Dec 2024): built a Portuguese multimodal exam dataset, used in the Kaleidoscope paper (ICLR 2026).</li>
-  </ul>
-</div>
-
-<div class="project-entry">
-  <div class="project-head">
-    <strong><a href="https://pet.icmc.usp.br" {{ newtab }}>PET Computação</a></strong>
-    <span class="project-period">Sep 2022 – Dec 2023</span>
-  </div>
-  <div class="project-role">Teaching Assistant &amp; Instructor</div>
-  <ul>
-    <li>Overclock (Jul – Dec 2023): mentored undergraduates in C programming.</li>
-    <li>Codifique (Sep 2022 – Jun 2023): taught Python and game development to high school students.</li>
-  </ul>
-</div>
-
-<div class="project-entry">
-  <div class="project-head">
-    <strong><a href="https://data.icmc.usp.br" {{ newtab }}>DATA ICMC</a></strong>
-    <span class="project-period">Mar 2022 – Feb 2025</span>
-  </div>
-  <div class="project-role">Study Group Coordinator &amp; Member</div>
-  <ul>
-    <li>Coordinated the &ldquo;Deep Learning for Time Series&rdquo; study group (Aug 2024 – Dec 2024).</li>
-    <li>Member of the &ldquo;Machine Learning&rdquo; and &ldquo;Deep Learning&rdquo; study groups and helped with internal operations (Mar 2022 – Feb 2025).</li>
-  </ul>
-</div>
+<p class="cv-text">See <a href="{{ base_path }}/publications/">Publications</a> for the full list of my papers.</p>
 
 <h2>Skills</h2>
 
-<ul class="cv-plain">
-  <li><strong>Programming:</strong> C/C++, Python</li>
-  <li><strong>ML / Data:</strong> PyTorch, Scikit-Learn, NumPy, Pandas, Matplotlib</li>
-  <li><strong>Topics:</strong> Time Series, Foundation Models, Deep Learning</li>
-</ul>
+<div class="cv-text">
+  <p>Programming: C/C++, Python</p>
+  <p>ML / Data: PyTorch, Scikit-Learn, NumPy, Pandas, Matplotlib</p>
+  <p>Topics: Time Series, Foundation Models, Deep Learning</p>
+</div>
 
 <h2>Languages</h2>
 
-<ul class="cv-plain">
-  <li><strong>Portuguese:</strong> Native</li>
-  <li><strong>English:</strong> C1 (TOEFL iBT)</li>
-  <li><strong>Spanish:</strong> Intermediate</li>
-</ul>
+<div class="cv-text">
+  <p>Portuguese: Native</p>
+  <p>English: C1 (TOEFL iBT)</p>
+  <p>Spanish: Intermediate</p>
+</div>

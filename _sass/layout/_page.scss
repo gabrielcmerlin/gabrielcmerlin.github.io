@@ -920,3 +920,99 @@ html[data-theme="dark"] .pub-legend__swatch.is-first {
   background: #22344a;
   border-color: #8fb4dc;
 }
+
+/* CV page: same card style as Projects, without a logo */
+
+.cv-card .project-card__desc p + p {
+  margin-top: 0.4em;
+}
+
+.cv-card .project-card__title {
+  font-size: $type-size-4;
+}
+
+.cv-when {
+  color: var(--global-text-color-light);
+}
+
+/* CV page: plain download link, award rows, plain text sections */
+.cv-download-link {
+  margin: 0 0 0.5em;
+}
+
+.cv-rows {
+  margin: 0.5em 0 0;
+  font-size: 0.85em;
+}
+
+.cv-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.35em 0;
+  border-bottom: 1px solid var(--global-border-color);
+
+  .cv-when {
+    flex-shrink: 0;
+    color: var(--global-text-color-light);
+    font-size: 1em;
+  }
+}
+
+.cv-text {
+  margin: 0.5em 0 0;
+  font-size: 0.85em;
+  line-height: 1.6;
+
+  p {
+    margin: 0.15em 0;
+  }
+}
+
+/* CV: Education heading with the download link on the same line, on the right */
+.cv-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+
+  h2 {
+    margin-bottom: 0.5em;
+  }
+}
+
+.cv-download-inline {
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
+/* CV: Education card layout */
+.cv-education {
+  .cv-institution {
+    margin: 0.2em 0 0;
+    font-size: 0.85em;
+    color: var(--global-text-color-light);
+  }
+
+  .cv-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em 1.8em;
+    margin-top: 0.7em;
+    font-size: 0.9em;
+  }
+
+  .cv-label {
+    color: var(--global-text-color-light);
+    margin-right: 0.3em;
+  }
+
+  .cv-theses {
+    margin-top: 0.6em;
+  }
+
+  .cv-transcript-link {
+    margin: 0.8em 0 0;
+    font-size: 0.85em;
+  }
+}

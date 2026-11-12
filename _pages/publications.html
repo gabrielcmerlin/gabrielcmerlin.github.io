@@ -19,7 +19,7 @@ author_profile: true
   <article class="project-card{% if firstauthor == 'Gabriel da Costa Merlin' %} is-first-author{% endif %}">
     <div class="project-card__body">
       <h2 class="project-card__title">{{ post.title }}</h2>
-      <p class="project-card__role">{{ post.venue_full | default: post.venue }}</p>
+      <p class="project-card__role">{{ post.venue_full | default: post.venue }}, {{ post.date | date: "%Y" }}</p>
       <div class="project-card__desc"><p>{{ post.authors }}</p></div>
       {% if post.link or post.code or post.page %}
       <div class="project-card__links">
