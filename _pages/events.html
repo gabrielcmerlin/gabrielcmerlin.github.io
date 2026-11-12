@@ -13,7 +13,14 @@ author_profile: true
   <article class="project-card event-card">
     {% if e.photos %}
     <div class="event-card__media">
-      <div class="carousel">
+      <div class="carousel" role="group" aria-roledescription="carousel" aria-label="Photos of {{ e.title }}">
+        {% if e.photos.size > 1 %}
+        <div class="carousel__sr">
+          <button type="button" class="carousel__sr-btn" data-dir="-1">Previous photo</button>
+          <button type="button" class="carousel__sr-btn" data-dir="1">Next photo</button>
+        </div>
+        {% endif %}
+        <span class="carousel__status" aria-live="polite"></span>
         <div class="carousel__track">
           {% for p in e.photos %}
           <img class="carousel__slide{% if forloop.first %} is-active{% endif %}" src="{{ base_path }}{{ p.src }}" alt="{{ p.alt }}"{% if p.position %} style="object-position: {{ p.position }}"{% endif %}>

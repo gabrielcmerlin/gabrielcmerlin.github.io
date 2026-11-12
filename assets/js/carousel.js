@@ -1,9 +1,12 @@
 /* Photo carousel for the Events page.
    The current photo sits in the center; the previous and next ones peek out
-   behind it, smaller and blurred. Navigation is manual: clicking a side photo
-   or the left/right keys while the carousel has focus. */
+   behind it, smaller and blurred. Navigation: click a side photo, use the
+   left/right keys while the carousel has focus, or use the hidden "Previous /
+   Next photo" buttons, which appear when focused with the keyboard and are
+   read by screen readers. */
 document.querySelectorAll('.carousel').forEach(function (root) {
   var slides = Array.prototype.slice.call(root.querySelectorAll('.carousel__slide'));
+  var status = root.querySelector('.carousel__status');
   var n = slides.length;
   var i = 0;
 
@@ -25,7 +28,11 @@ document.querySelectorAll('.carousel').forEach(function (root) {
     });
   }
 
-  function show(k) { i = (k + n) % n; render(); }
+  function show(k) {
+    i = (k + n) % n;
+    render();
+    if (status) { status.textContent = 'Photo ' + (i + 1) + ' of ' + n + ': ' + slides[i].alt; }
+  }
 
   render();
   if (n < 2) { return; }
@@ -34,6 +41,9 @@ document.querySelectorAll('.carousel').forEach(function (root) {
     s.addEventListener('click', function () {
       if (s.classList.contains('is-prev') || s.classList.contains('is-next')) { show(k); }
     });
+  });
+  root.querySelectorAll('.carousel__sr-btn').forEach(function (b) {
+    b.addEventListener('click', function () { show(i + Number(b.getAttribute('data-dir'))); });
   });
   root.setAttribute('tabindex', '0');
   root.addEventListener('keydown', function (ev) {

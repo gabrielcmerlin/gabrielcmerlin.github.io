@@ -29,9 +29,6 @@ function determineComputedTheme() {
 function setTheme(theme) {
   const use_theme = theme || determineComputedTheme();
 
-  // Keep the browser UI color (top bar, pull-to-refresh area) in sync with the theme
-  $("#theme-color-meta").attr("content", use_theme === "dark" ? "#1e2124" : "#f3f4f5");
-
   if (use_theme === "dark") {
     $("html").attr("data-theme", "dark");
     $("#theme-icon").removeClass("fa-sun").addClass("fa-moon");
@@ -39,6 +36,11 @@ function setTheme(theme) {
     $("html").removeAttr("data-theme");
     $("#theme-icon").removeClass("fa-moon").addClass("fa-sun");
   }
+
+  // Keep the browser UI color (top bar, pull-to-refresh area) in sync with the theme;
+  // the color comes from the stylesheet, so it is defined in one place only
+  const pageColor = getComputedStyle(document.documentElement).getPropertyValue("--global-bg-color").trim();
+  if (pageColor) { $("#theme-color-meta").attr("content", pageColor); }
 }
 
 // Toggle the theme from the navbar button and remember the choice

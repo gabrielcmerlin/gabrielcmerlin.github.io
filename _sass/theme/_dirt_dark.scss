@@ -41,6 +41,9 @@ $sidebar-screen-min-width   : 1024px;
 html[data-theme="dark"] {
   --global-base-color                 : #{$primary-color};
   --global-bg-color                   : #{$background};
+  --first-author-bg                   : #22344a;
+  --first-author-border               : #3d5a7a;
+  --first-author-swatch-border        : #8fb4dc;
   --global-footer-bg-color            : #{$footer};
   --global-border-color               : #{$border};
   --global-dark-border-color          : #{$border-light};

@@ -1,25 +1,21 @@
 {
-  "name": "academic-pages",
-  "version": "0.8.1.1",
-  "description": "Academic Pages Mistakes Jekyll theme npm build scripts",
+  "name": "gabrielcmerlin.github.io",
+  "version": "1.0.0",
+  "description": "Gabriel da Costa Merlin's academic website, built with Jekyll on top of the Academic Pages theme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/academicpages/academicpages.github.io"
+    "url": "https://github.com/gabrielcmerlin/gabrielcmerlin.github.io"
   },
   "keywords": [
     "jekyll",
-    "theme",
-    "minimal"
-  ],
-  "contributors": [
-    "Michael Rose",
-    "Robert Zupko"
+    "academic",
+    "portfolio"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/academicpages/academicpages.github.io/issues"
+    "url": "https://github.com/gabrielcmerlin/gabrielcmerlin.github.io/issues"
   },
-  "homepage": "https://github.com/academicpages/academicpages.github.io",
+  "homepage": "https://gabrielcmerlin.github.io",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -30,7 +26,7 @@
   "devDependencies": {
     "jslint": "^0.12.1",
     "onchange": "^7.1.0",
-    "uglify-js": "^3.19.3"    
+    "uglify-js": "^3.19.3"
   },
   "scripts": {
     "uglify": "uglifyjs assets/js/plugins/jquery.greedy-navigation.js assets/js/_main.js assets/js/theme.js -c -m -o assets/js/main.min.js",

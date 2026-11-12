@@ -222,7 +222,7 @@ kramdown:
 # These settings control the types of collections used by the template
 collections:
   publications:
-    output: true
+    output: false
     permalink: /:collection/:path/
   projects:
     output: false
@@ -271,6 +271,9 @@ defaults:
 # Sass/SCSS
 sass:
   sass_dir: _sass
+  # The template still uses @import and global functions, which Dart Sass 3 will drop.
+  # Warnings are silenced here; migrating to @use is a larger refactor.
+  silence_deprecations: ["import", "global-builtin", "if-function", "color-functions"]
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
 

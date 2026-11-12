@@ -36,6 +36,9 @@ $sidebar-screen-min-width   : 1024px;
 :root {
   --global-base-color                 : #{$primary-color};
   --global-bg-color                   : #{$background};
+  --first-author-bg                   : #e4edf8;   /* highlighted card: papers where Gabriel is first author */
+  --first-author-border               : #8fb4dc;
+  --first-author-swatch-border        : #2f5d8a;
   --global-footer-bg-color            : #{$footer};
   --global-border-color               : #{$border};
   --global-dark-border-color          : #{$text-muted};

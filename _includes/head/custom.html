@@ -7,7 +7,8 @@
     var dark = saved ? saved === 'dark'
       : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
     if (dark) { document.documentElement.setAttribute('data-theme', 'dark'); }
-    window.__themeColor = dark ? '#1e2124' : '#f3f4f5';
+    /* the page color comes from the stylesheet (render-blocking, already loaded here) */
+    window.__themeColor = getComputedStyle(document.documentElement).getPropertyValue('--global-bg-color').trim();
   })();
 </script>
 

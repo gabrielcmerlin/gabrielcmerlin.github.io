@@ -1,7 +1,6 @@
 /* ==========================================================================
    SINGLE PAGE/POST
    ========================================================================== */
-
 #main {
   @include container;
   @include clearfix;
@@ -194,7 +193,6 @@
 /*
    Social sharing
    ========================================================================== */
-
 .page__share {
   margin-top: 2em;
   padding-top: 1em;
@@ -220,11 +218,9 @@
   text-transform: uppercase;
 }
 
-
 /*
    Page meta
    ========================================================================== */
-
 .page__meta {
   margin-top: 2em;
   color: var(--global-text-color-light);
@@ -246,11 +242,9 @@
   text-transform: uppercase;
 }
 
-
 /*
    Page taxonomy
    ========================================================================== */
-
 .page__taxonomy {
   .sep {
     display: none;
@@ -276,11 +270,9 @@
   }
 }
 
-
 /*
    Comments
    ========================================================================== */
-
 .page__comments {
   @include full();
 }
@@ -372,11 +364,9 @@
   }
 }
 
-
 /*
    Related
    ========================================================================== */
-
 .page__related {
   margin-top: 2em;
   padding-top: 1em;
@@ -398,68 +388,6 @@
   margin-bottom: 10px;
   font-size: $type-size-6;
   text-transform: uppercase;
-}
-
-/* Publications page: numbered list in the style of a CV */
-.publication-list {
-  margin-top: 1em;
-
-  li {
-    margin-bottom: 0.75em;
-    line-height: 1.6;
-  }
-}
-
-
-/* Projects page: entries in the style of sb-lucas.github.io/projects */
-.project-group a {
-  text-decoration: none;
-}
-
-.project-entry {
-  margin-bottom: 1.5em;
-  line-height: 1.6;
-
-  .project-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1em;
-  }
-
-  .project-period {
-    flex-shrink: 0;
-    color: var(--global-text-color-light);
-    font-size: $type-size-6;
-  }
-
-  .project-role {
-    font-style: italic;
-    color: var(--global-text-color-light);
-  }
-
-  .project-desc p {
-    margin: 0.15em 0;
-  }
-
-  .project-links {
-    font-size: $type-size-6;
-
-    a {
-      text-decoration: none;
-      margin-right: 0.35em;
-    }
-  }
-}
-
-/* Events page: list with a centered photo carousel under each event */
-.event-list {
-  margin-top: 1em;
-
-  > li {
-    margin-bottom: 2em;
-    line-height: 1.6;
-  }
 }
 
 .carousel {
@@ -519,34 +447,6 @@
   }
 }
 
-/* CV page */
-.cv-download {
-  margin: 0.5em 0 1.5em;
-}
-
-.project-entry ul {
-  margin: 0.25em 0 0;
-  padding-left: 1.2em;
-
-  li {
-    margin-bottom: 0.2em;
-  }
-}
-
-.cv-plain {
-  list-style: none;
-  padding-left: 0;
-
-  li {
-    margin-bottom: 0.3em;
-  }
-}
-
-.cv-transcript {
-  margin: 0.4em 0 0;
-  font-size: $type-size-6;
-}
-
 /* Phones: bigger center photo, side photos peek less */
 @media (max-width: 600px) {
   .carousel {
@@ -571,36 +471,6 @@
 #main .archive {
   @include breakpoint($large) {
     @include prefix(0.75 of 12);
-  }
-}
-
-
-/* Short [code] [page] links on the Projects list */
-.bracket-link {
-  margin-left: 0.35em;
-  font-size: $type-size-6;
-}
-
-/* Projects bullets: sub-bullets with role, description and links */
-.project-bullets > li > ul {
-  margin: 0.25em 0 0;
-
-  li {
-    margin-bottom: 0.15em;
-  }
-}
-
-/* Project links: own line, no bullet, aligned with the sub-bullet text */
-.project-bullets > li > ul {
-  padding-left: 40px;
-}
-
-.project-links-line {
-  padding-left: 40px;
-  margin-top: 0.15em;
-
-  .bracket-link:first-child {
-    margin-left: 0;
   }
 }
 
@@ -875,14 +745,9 @@ $tl-date-col: 5.5em;
 }
 
 /* Publications: papers where Gabriel is first author get a highlighted card */
-html:not([data-theme="dark"]) .project-card.is-first-author {
-  background: #e4edf8;
-  border-color: #8fb4dc;
-}
-
-html[data-theme="dark"] .project-card.is-first-author {
-  background: #22344a;
-  border-color: #3d5a7a;
+.project-card.is-first-author {
+  background: var(--first-author-bg);
+  border-color: var(--first-author-border);
 }
 
 /* Publications legend, top right: inset to the card's inner padding, easier to read */
@@ -911,18 +776,12 @@ html[data-theme="dark"] .project-card.is-first-author {
   background: var(--global-bg-color);
 
   &.is-first {
-    background: #e4edf8;
-    border-color: #2f5d8a;
+    background: var(--first-author-bg);
+    border-color: var(--first-author-swatch-border);
   }
 }
 
-html[data-theme="dark"] .pub-legend__swatch.is-first {
-  background: #22344a;
-  border-color: #8fb4dc;
-}
-
 /* CV page: same card style as Projects, without a logo */
-
 .cv-card .project-card__desc p + p {
   margin-top: 0.4em;
 }
@@ -933,11 +792,6 @@ html[data-theme="dark"] .pub-legend__swatch.is-first {
 
 .cv-when {
   color: var(--global-text-color-light);
-}
-
-/* CV page: plain download link, award rows, plain text sections */
-.cv-download-link {
-  margin: 0 0 0.5em;
 }
 
 .cv-rows {
@@ -955,7 +809,7 @@ html[data-theme="dark"] .pub-legend__swatch.is-first {
   .cv-when {
     flex-shrink: 0;
     color: var(--global-text-color-light);
-    font-size: 1em;
+    font-size: 0.93em;
   }
 }
 
@@ -977,6 +831,7 @@ html[data-theme="dark"] .pub-legend__swatch.is-first {
   gap: 1em;
 
   h2 {
+    margin-top: 0.5em;   /* the theme's 2.5em top margin pushed Education below the other tabs */
     margin-bottom: 0.5em;
   }
 }
@@ -996,8 +851,8 @@ html[data-theme="dark"] .pub-legend__swatch.is-first {
 
   .cv-stats {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5em 1.8em;
+    flex-direction: column;
+    gap: 0.68em;
     margin-top: 0.7em;
     font-size: 0.9em;
   }
@@ -1007,12 +862,74 @@ html[data-theme="dark"] .pub-legend__swatch.is-first {
     margin-right: 0.3em;
   }
 
+  .cv-subhead {
+    margin: 0.7em 0 0;
+    font-size: 0.85em;
+    color: var(--global-text-color-light);
+  }
+
   .cv-theses {
-    margin-top: 0.6em;
+    margin-top: 0.2em;
   }
 
   .cv-transcript-link {
     margin: 0.8em 0 0;
-    font-size: 0.85em;
+    font-size: 0.8em;
+  }
+}
+
+/* CV: bullets inside the Student Groups descriptions, same font as the text */
+.cv-bullets {
+  margin: 0.2em 0 0;
+  padding-left: 1.2em;
+  list-style: disc;
+
+  li {
+    margin: 0.2em 0;
+  }
+}
+
+/* Carousel accessibility: hidden controls, shown only when focused with the keyboard */
+.carousel__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.carousel__sr {
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+  z-index: 5;
+  display: flex;
+  gap: 0.4em;
+}
+
+.carousel__sr-btn {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    clip: auto;
+    margin: 0;
+    padding: 0.3em 0.7em;
+    font-size: $type-size-6;
+    color: var(--global-text-color);
+    background: var(--global-bg-color);
+    border: 1px solid var(--global-text-color-light);
+    border-radius: 4px;
   }
 }
