@@ -1,6 +1,6 @@
 /* Photo carousel for the Events page.
    The current photo sits in the center; the previous and next ones peek out
-   behind it, smaller and blurred. Navigation: click a side photo, use the
+   behind it, smaller and blurred. Navigation: click a side photo, swipe on touch screens, use the
    left/right keys while the carousel has focus, or use the hidden "Previous /
    Next photo" buttons, which appear when focused with the keyboard and are
    read by screen readers. */
@@ -45,6 +45,17 @@ document.querySelectorAll('.carousel').forEach(function (root) {
   root.querySelectorAll('.carousel__sr-btn').forEach(function (b) {
     b.addEventListener('click', function () { show(i + Number(b.getAttribute('data-dir'))); });
   });
+  // Swipe: a mostly horizontal drag of 40px or more changes the photo.
+  var x0 = 0, y0 = 0;
+  root.addEventListener('touchstart', function (ev) {
+    x0 = ev.changedTouches[0].clientX;
+    y0 = ev.changedTouches[0].clientY;
+  }, { passive: true });
+  root.addEventListener('touchend', function (ev) {
+    var dx = ev.changedTouches[0].clientX - x0;
+    var dy = ev.changedTouches[0].clientY - y0;
+    if (Math.abs(dx) >= 40 && Math.abs(dx) > Math.abs(dy) * 1.5) { show(dx < 0 ? i + 1 : i - 1); }
+  }, { passive: true });
   root.setAttribute('tabindex', '0');
   root.addEventListener('keydown', function (ev) {
     if (ev.key === 'ArrowLeft') { show(i - 1); }

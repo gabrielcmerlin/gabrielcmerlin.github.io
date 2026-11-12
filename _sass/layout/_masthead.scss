@@ -63,6 +63,11 @@
   &--lg {
     padding-right: 2em;
     font-weight: 700;
+
+    // On phones the menu is collapsed: keep the theme toggle next to the name.
+    @media (max-width: 767px) {
+      padding-right: 0.25em;
+    }
   }
 }
 
