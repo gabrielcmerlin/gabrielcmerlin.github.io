@@ -591,34 +591,6 @@
   }
 }
 
-/* Updates filter (home page) */
-.updates-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1em;
-}
-
-.updates-filter {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  margin: 0;
-  font-size: $type-size-6;
-  font-weight: normal;
-  color: var(--global-text-color-light);
-
-  select {
-    width: auto;
-    margin: 0;
-    padding: 0.3em 0.6em;
-    font-size: 0.85em;
-    color: var(--global-text-color);
-    background-color: var(--global-bg-color);
-    border: 1px solid var(--global-border-color);
-    border-radius: 4px;
-  }
-}
 
 /* Short [code] [page] links on the Projects list */
 .bracket-link {
@@ -647,4 +619,167 @@
   .bracket-link:first-child {
     margin-left: 0;
   }
+}
+
+/* ==========================================================================
+   Updates as a timeline (home page), inspired by danbinaerin.com
+   ========================================================================== */
+.tl-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  border-bottom: 1px solid var(--global-border-color);
+  margin: 2em 0 1em;
+
+  h2 {
+    margin: 0;
+    padding-bottom: 0.3em;
+    border-bottom: none;
+  }
+}
+
+.tl-toggle {
+  display: flex;
+}
+
+.tl-btn {
+  padding: 0.25em 0.75em;
+  font-size: $type-size-6;
+  color: var(--global-text-color-light);
+  background: transparent;
+  border: 1px solid var(--global-border-color);
+  cursor: pointer;
+
+  & + & { border-left: none; }
+  &:first-child { border-radius: 4px 0 0 4px; }
+  &:last-child { border-radius: 0 4px 4px 0; }
+
+  &.is-active {
+    color: var(--global-bg-color);
+    background: var(--global-link-color);
+    border-color: var(--global-link-color);
+  }
+}
+
+$tl-date-col: 5.5em;
+
+.timeline {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  /* the vertical line */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0.4em;
+    bottom: 0.4em;
+    left: calc(#{$tl-date-col} + 0.9em);
+    width: 1px;
+    background: var(--global-border-color);
+  }
+}
+
+.tl-item[hidden] {
+  display: none;
+}
+
+.tl-item {
+  display: grid;
+  grid-template-columns: $tl-date-col 1fr;
+  column-gap: 1.8em;
+  margin: 0 0 1.1em;
+  padding: 0;
+  line-height: 1.55;
+}
+
+.tl-meta {
+  text-align: right;
+  font-size: $type-size-6;
+  line-height: 1.4;
+  padding-top: 0.15em;
+}
+
+.tl-date {
+  display: block;
+  color: var(--global-text-color-light);
+  font-variant-numeric: tabular-nums;
+}
+
+.tl-tag {
+  display: block;
+  margin-top: 0.15em;
+  font-size: 0.8em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--global-link-color);
+}
+
+.tl-body {
+  position: relative;
+
+  /* the dot on the line */
+  &::before {
+    content: "";
+    position: absolute;
+    left: calc(-0.9em - 4px);
+    top: 0.55em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--global-link-color);
+  }
+}
+
+.tl-line {
+  margin: 0;
+}
+
+.tl-card {
+  padding: 0.75em 1em;
+  border: 1px solid var(--global-border-color);
+  border-radius: 6px;
+  background: var(--global-code-background-color);
+}
+
+.tl-card-title {
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.tl-card-text {
+  margin-top: 0.25em;
+  font-size: $type-size-6;
+  color: var(--global-text-color-light);
+}
+
+.tl-link-btn {
+  display: inline-block;
+  margin-top: 0.5em;
+  padding: 0.1em 0.55em;
+  font-size: $type-size-7;
+  border: 1px solid var(--global-link-color);
+  border-radius: 4px;
+  text-decoration: none !important;
+
+  &:hover {
+    color: var(--global-bg-color);
+    background: var(--global-link-color);
+  }
+}
+
+@media (max-width: 600px) {
+  $tl-date-col-sm: 4.2em;
+
+  .timeline::before { left: calc(#{$tl-date-col-sm} + 0.6em); }
+  .tl-item { grid-template-columns: $tl-date-col-sm 1fr; column-gap: 1.2em; }
+  .tl-body::before { left: calc(-0.6em - 4px); }
+}
+
+/* Box-style link at the end of one-line timeline items */
+.tl-link-inline {
+  display: table;   /* own line, but only as wide as the text */
+  margin: 0.4em 0 0;
 }

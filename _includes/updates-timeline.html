@@ -1,0 +1,57 @@
+{% assign newtab = 'target="_blank" rel="noopener noreferrer"' %}
+<div class="tl-header">
+  <h2 id="updates">Updates</h2>
+  <div class="tl-toggle" role="group" aria-label="Filter updates by date">
+    <button type="button" class="tl-btn is-active" data-range="year">Last year</button>
+    <button type="button" class="tl-btn" data-range="all">All time</button>
+  </div>
+</div>
+
+<ol class="timeline" id="timeline-list">
+{% for u in site.data.updates %}
+  <li class="tl-item tl-{{ u.type }}" data-date="{{ u.date }}">
+    <div class="tl-meta">
+      <span class="tl-date">{{ u.date }}</span>
+      <span class="tl-tag">{{ u.type }}</span>
+    </div>
+    <div class="tl-body">
+      {% if u.type == "paper" %}
+      <div class="tl-card">
+        <div class="tl-card-title">{{ u.title }}</div>
+        <div class="tl-card-text">{{ u.text }}</div>
+        {% if u.link %}<a class="tl-link-btn" href="{{ u.link }}" {{ newtab }}>{{ u.link_label | default: "link" }}</a>{% endif %}
+      </div>
+      {% else %}
+      <p class="tl-line">{{ u.text }}{% if u.link %}<a class="tl-link-btn tl-link-inline" href="{{ u.link }}" {{ newtab }}>{{ u.link_label | default: "link" }}</a>{% endif %}</p>
+      {% endif %}
+    </div>
+  </li>
+{% endfor %}
+</ol>
+
+<script>
+(function () {
+  var list = document.getElementById('timeline-list');
+  var btns = document.querySelectorAll('.tl-btn');
+  if (!list || !btns.length) { return; }
+  var M = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+  function idx(s) {
+    var m = (s || '').match(/^([A-Z][a-z]{2})\s+(\d{4})$/);
+    return m && (m[1] in M) ? Number(m[2]) * 12 + M[m[1]] : null;
+  }
+  function apply(range) {
+    var now = new Date(), cur = now.getFullYear() * 12 + now.getMonth();
+    Array.prototype.forEach.call(list.children, function (li) {
+      var i = idx(li.getAttribute('data-date'));
+      li.hidden = !(range === 'all' || (i !== null && i >= cur - 11 && i <= cur));
+    });
+    Array.prototype.forEach.call(btns, function (b) {
+      b.classList.toggle('is-active', b.getAttribute('data-range') === range);
+    });
+  }
+  Array.prototype.forEach.call(btns, function (b) {
+    b.addEventListener('click', function () { apply(b.getAttribute('data-range')); });
+  });
+  apply('year');
+})();
+</script>

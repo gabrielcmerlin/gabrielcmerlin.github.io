@@ -1,0 +1,68 @@
+# Updates shown as a timeline on the home page (newest first).
+# type: paper | grant | thesis | event
+# Papers become cards (title + text + button); the other types are one line.
+- date: "Nov 2026"
+  type: thesis
+  text: 'My second BSc thesis, "Few-shot Learning for Time Series Classification Using a Tabular Foundation Model", was submitted'
+
+- date: "Oct 2026"
+  type: paper
+  title: "Exploring Post-Hoc Disentanglement of Audio Foundation Models for Music Similarity"
+  text: "Accepted to <i>LAMIR 2026</i>."
+  link: "https://arxiv.org/abs/2611.14415"
+  link_label: "arxiv"
+
+- date: "May 2026"
+  type: paper
+  title: "TS2TabPFN: Time Series Classification and Extrinsic Regression Through Feature Extraction and a Tabular Foundation Model"
+  text: "Accepted to <i>ECML PKDD 2026</i>."
+  link: "https://link.springer.com/chapter/10.1007/978-3-032-37676-3_32"
+  link_label: "paper"
+
+- date: "Apr 2026"
+  type: grant
+  text: "Awarded a FAPESP BEPE scholarship for a research internship at Universidad de Granada"
+  link: "https://bv.fapesp.br/en/bolsas/234753/evaluating-neural-architecture-search-for-time-series-extrinsic-regression/"
+  link_label: "grant"
+
+- date: "Jan 2026"
+  type: paper
+  title: "Kaleidoscope: In-language Exams for Massively Multilingual Vision Evaluation"
+  text: "Accepted to <i>ICLR 2026</i>."
+  link: "https://proceedings.iclr.cc/paper_files/paper/2026/hash/8365049fc3fe46cb5ebd648d58ba0933-Abstract-Conference.html"
+  link_label: "paper"
+
+- date: "Dec 2025"
+  type: thesis
+  text: 'My first BSc thesis, "Adapting Transformers and Mamba for Time Series Extrinsic Regression", was approved'
+
+- date: "Sep 2025"
+  type: grant
+  text: "Awarded a FAPESP scholarship for my third undergraduate research project"
+  link: "https://bv.fapesp.br/en/bolsas/230859/novel-architectures-for-time-series-classification-and-extrinsic-regression/"
+  link_label: "grant"
+
+- date: "Aug 2025"
+  type: event
+  text: "Attended the Cornell, Maryland, Max Planck Pre-doctoral Research School (CMMRS) in Saarbrücken, Germany"
+  link: "https://cmmrs2025.mpi-sws.org"
+  link_label: "website"
+
+- date: "Aug 2025"
+  type: paper
+  title: "FCKAN: Evaluating KAN for Time Series Classification and Extrinsic Regression"
+  text: "Accepted to <i>ENIAC 2025</i>."
+  link: "https://sol.sbc.org.br/index.php/eniac/article/view/38846"
+  link_label: "paper"
+
+- date: "Jun 2024"
+  type: grant
+  text: "Awarded a FAPESP scholarship for my second undergraduate research project"
+  link: "https://bv.fapesp.br/en/bolsas/217721/off-the-shelf-algorithms-for-classification-and-extrinsic-regression/"
+  link_label: "grant"
+
+- date: "Apr 2023"
+  type: grant
+  text: "Awarded a FAPESP scholarship for my first undergraduate research project"
+  link: "https://bv.fapesp.br/en/bolsas/208053/time-series-in-mhealth-applications-task-definition-and-data-collection/"
+  link_label: "grant"
