@@ -14,12 +14,6 @@ main:
   - title: "Projects"
     url: /projects/
 
-  - title: "Teaching"
-    url: /teaching/
-
-  - title: "Talks"
-    url: /talks/
-
   - title: "Events"
     url: /events/
 

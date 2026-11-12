@@ -410,23 +410,6 @@
   }
 }
 
-/* Talks page: list with an optional photo under each talk */
-.talk-list {
-  margin-top: 1em;
-
-  li {
-    margin-bottom: 1.5em;
-    line-height: 1.6;
-  }
-}
-
-.talk-photo {
-  display: block;
-  width: 100%;
-  max-width: 600px;
-  margin: 0.75em auto 0;
-  border-radius: 6px;
-}
 
 /* Projects page: entries in the style of sb-lucas.github.io/projects */
 .project-group a {
@@ -867,4 +850,73 @@ $tl-date-col: 5.5em;
     width: 100%;
     height: 160px;
   }
+}
+
+/* Events as cards: photo carousel on the left, text on the right */
+.event-card__media {
+  flex: 0 0 300px;
+  width: 300px;
+
+  .carousel {
+    max-width: none;
+    margin: 0;
+  }
+}
+
+.event-card {
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .event-card__media {
+    flex-basis: auto;
+    width: 100%;
+  }
+}
+
+/* Publications: papers where Gabriel is first author get a highlighted card */
+html:not([data-theme="dark"]) .project-card.is-first-author {
+  background: #e4edf8;
+  border-color: #8fb4dc;
+}
+
+html[data-theme="dark"] .project-card.is-first-author {
+  background: #22344a;
+  border-color: #3d5a7a;
+}
+
+/* Publications legend, top right: inset to the card's inner padding, easier to read */
+.pub-legend {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.4em;
+  margin: 0 0 1em;
+  padding-right: 1em;
+  font-size: 0.78em;
+  font-weight: 400;
+  color: var(--global-text-color);
+}
+
+.pub-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+}
+
+.pub-legend__swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1.5px solid var(--global-text-color-light);
+  background: var(--global-bg-color);
+
+  &.is-first {
+    background: #e4edf8;
+    border-color: #2f5d8a;
+  }
+}
+
+html[data-theme="dark"] .pub-legend__swatch.is-first {
+  background: #22344a;
+  border-color: #8fb4dc;
 }

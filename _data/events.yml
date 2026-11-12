@@ -1,7 +1,14 @@
-# Events shown on /events/, newest first.
-# Each event can have any number of photos; they rotate in a carousel.
-- date: "Sep 2025"
-  text: 'Presented <a href="/talks/">FCKAN</a> at <a href="https://bracis.sbc.org.br/2025/" target="_blank" rel="noopener noreferrer">ENIAC / BRACIS 2025</a>, Fortaleza, Brazil'
+# Events shown as cards on /events/, newest first.
+# Each card: title, role, date, location, description, links, and photos
+# (any number; they appear in a carousel on the left of the card).
+- title: "ENIAC / BRACIS 2025"
+  role: "Paper presentation"
+  date: "Sep 2025"
+  location: "Fortaleza, Brazil"
+  text: 'Presented the paper "FCKAN: Evaluating KAN for Time Series Classification and Extrinsic Regression".'
+  links:
+    - name: "event website"
+      url: "https://bracis.sbc.org.br/2025/"
   photos:
     - src: /images/events/bracis-2025/01.jpg
       alt: "Gabriel da Costa Merlin at ENIAC / BRACIS 2025 in Fortaleza"
@@ -10,8 +17,14 @@
     - src: /images/events/bracis-2025/03.jpg
       alt: "Beach in Fortaleza"
 
-- date: "Aug 2025"
-  text: 'Attended the <a href="https://cmmrs2025.mpi-sws.org" target="_blank" rel="noopener noreferrer">Cornell, Maryland, Max Planck Pre-doctoral Research School (CMMRS)</a>, Saarbrücken, Germany'
+- title: "Cornell, Maryland, Max Planck Pre-doctoral Research School (CMMRS)"
+  role: "Participant"
+  date: "Aug 2025"
+  location: "Saarbrücken, Germany"
+  text: "Attended the pre-doctoral research school at the Max Planck Institute for Software Systems."
+  links:
+    - name: "event website"
+      url: "https://cmmrs2025.mpi-sws.org"
   photos:
     - src: /images/events/cmmrs-2025/01.jpg
       alt: "Gabriel da Costa Merlin in front of the Max Planck Institute for Software Systems"

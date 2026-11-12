@@ -153,6 +153,9 @@
       {% if author.twitter %}
         <li><a href="https://x.com/{{ author.twitter }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-x-twitter icon-pad-right" aria-hidden="true"></i>X (formerly Twitter)</a></li>
       {% endif %}
+      {% if author.lattes %}
+        <li><a href="{{ author.lattes }}" target="_blank" rel="noopener noreferrer"><i class="ai ai-lattes ai-fw icon-pad-right"></i>Lattes</a></li>
+      {% endif %}
       {% if author.vine %}
         <li><a href="https://vine.co/u/{{ author.vine }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-vine icon-pad-right" aria-hidden="true"></i>Vine</a></li>
       {% endif %}        

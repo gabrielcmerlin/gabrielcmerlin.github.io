@@ -1,14 +1,34 @@
 ---
 layout: archive
 title: "Publications"
+hide_title: true
 permalink: /publications/
 author_profile: true
 ---
 
-<ul class="publication-list">
+{% include base_path %}
+
+<div class="pub-legend" aria-label="Legend">
+  <span class="pub-legend__item"><span class="pub-legend__swatch is-first"></span>First author</span>
+  <span class="pub-legend__item"><span class="pub-legend__swatch"></span>Collaboration</span>
+</div>
+
+<div class="project-cards">
 {% for post in site.publications reversed %}
-  <li>
-    <strong>{{ post.title }}</strong>. {{ post.authors }}. <i>{{ post.venue_full | default: post.venue }}</i>, {{ post.date | date: "%Y" }}.{% if post.link %} <a href="{{ post.link }}" target="_blank" rel="noopener noreferrer">[link]</a>{% endif %}
-  </li>
+  {% assign firstauthor = post.authors | split: "," | first | strip %}
+  <article class="project-card{% if firstauthor == 'Gabriel da Costa Merlin' %} is-first-author{% endif %}">
+    <div class="project-card__body">
+      <h2 class="project-card__title">{{ post.title }}</h2>
+      <p class="project-card__role">{{ post.venue_full | default: post.venue }}</p>
+      <div class="project-card__desc"><p>{{ post.authors }}</p></div>
+      {% if post.link or post.code or post.page %}
+      <div class="project-card__links">
+        {% if post.link %}<a class="tl-link-btn" href="{{ post.link }}" target="_blank" rel="noopener noreferrer">{{ post.link_label | default: "link" }}</a>{% endif %}
+        {% if post.code %}<a class="tl-link-btn" href="{{ post.code }}" target="_blank" rel="noopener noreferrer">code</a>{% endif %}
+        {% if post.page %}<a class="tl-link-btn" href="{{ post.page }}" target="_blank" rel="noopener noreferrer">page</a>{% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </article>
 {% endfor %}
-</ul>
+</div>

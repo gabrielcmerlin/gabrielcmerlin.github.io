@@ -10,7 +10,7 @@
   title: "Exploring Post-Hoc Disentanglement of Audio Foundation Models for Music Similarity"
   text: "Accepted to <i>LAMIR 2026</i>."
   link: "https://arxiv.org/abs/2611.14415"
-  link_label: "arxiv"
+  link_label: "paper"
 
 - date: "May 2026"
   type: paper
@@ -46,7 +46,7 @@
   type: event
   text: "Attended the Cornell, Maryland, Max Planck Pre-doctoral Research School (CMMRS) in Saarbrücken, Germany"
   link: "https://cmmrs2025.mpi-sws.org"
-  link_label: "website"
+  link_label: "event website"
 
 - date: "Aug 2025"
   type: paper

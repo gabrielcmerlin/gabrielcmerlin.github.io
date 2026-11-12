@@ -10,10 +10,10 @@ role: "Project Coordinator"
 period: "Jan–Dec 2025"
 date: 2025-01-01
 links:
-  - name: "code"
-    url: "https://github.com/gruporaia/BoneCheck"
   - name: "page"
     url: "https://gruporaia.com/projetos/projeto/bonecheck"
+  - name: "code"
+    url: "https://github.com/gruporaia/BoneCheck"
 ---
 
 Coordinated an initiative for early osteoporosis detection in dental X-rays, building an ensemble of vision models (ConvNeXt, Swin, EfficientNet), XGBoost, and vision-language models.
