@@ -66,7 +66,7 @@
 
     // On phones the menu is collapsed: keep the theme toggle next to the name.
     @media (max-width: 767px) {
-      padding-right: 0.25em;
+      padding-right: 0;
     }
   }
 }
@@ -95,5 +95,29 @@
 
   &::before {
     display: none;
+  }
+}
+
+/* Collapsed (hamburger) menu: the current page is shown in the link color,
+   not underlined. */
+.greedy-nav .hidden-links .masthead__menu-item.selected a,
+.greedy-nav .hidden-links .masthead__menu-item.selected a:hover {
+  color: var(--global-link-color);
+  border-bottom: none;
+  background: transparent;
+
+  &::before {
+    display: none;
+  }
+}
+
+/* Phones: bring the theme toggle right next to the site name. */
+@media (max-width: 767px) {
+  .greedy-nav .visible-links .masthead__menu-item--lg a {
+    margin-right: 0;
+  }
+
+  .greedy-nav .visible-links #theme-toggle a {
+    margin-left: 1rem;
   }
 }

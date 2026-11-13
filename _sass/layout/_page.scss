@@ -761,6 +761,12 @@ $tl-date-col: 5.5em;
   font-size: 0.78em;
   font-weight: 400;
   color: var(--global-text-color);
+
+  // Phones: center the legend instead of pushing it to the right.
+  @media (max-width: 767px) {
+    justify-content: center;
+    padding-right: 0;
+  }
 }
 
 .pub-legend__item {
